@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="TLAST"/>
+        <attribute name="authors" value="Airin Tania"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-11-18 09:11:13 PM"/>
+        <attribute name="created" value="QWlyaW4gVGFuaWE7TEFQVE9QLTQyVkJSM0hWOzIwMjUtMTEtMTg7MDk6MTA6NDEgUE07MzM1Nw=="/>
+        <attribute name="edited" value="QWlyaW4gVGFuaWE7TEFQVE9QLTQyVkJSM0hWOzIwMjUtMTEtMTg7MDk6MTA6NDUgUE07MTtBaXJpbiBUYW5pYTtMQVBUT1AtNDJWQlIzSFY7MjAyNS0xMS0xODswODo0NToyOSBQTTtUTEFTVC5mcHJnOzc4MjY="/>
+        <attribute name="edited" value="QWlyaW4gVGFuaWE7TEFQVE9QLTQyVkJSM0hWOzIwMjUtMTEtMTg7MDk6MTE6MTMgUE07MTszNDY1"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="KodeMatkul" type="String" array="True" size="10"/>
+            <declare name="NamaTugas" type="String" array="True" size="10"/>
+            <declare name="Status" type="String" array="True" size="10"/>
+            <declare name="Deadline" type="Integer" array="True" size="10"/>
+            <declare name="Kesulitan" type="Integer" array="True" size="10"/>
+            <declare name="Prioritas" type="Real" array="True" size="10"/>
+            <declare name="JumlahData" type="Integer" array="False" size=""/>
+            <assign variable="JumlahData" expression="0"/>
+            <declare name="Running" type="Boolean" array="False" size=""/>
+            <assign variable="Running" expression="True"/>
+            <declare name="Perintah" type="String" array="False" size=""/>
+            <while expression="Running">
+                <input variable="Perintah"/>
+                <if expression="Perintah == &quot;(Add task)&quot;">
+                    <then>
+                        <call expression="TambahTugas(JumlahData, KodeMatkul, NamaTugas, Deadline, Kesulitan, Status, Prioritas, Running)"/>
+                    </then>
+                    <else>
+                        <if expression="Perintah == &quot;(Update task status)&quot;">
+                            <then>
+                                <call expression="UpdateStatus(JumlahData, KodeMatkul, Status)"/>
+                            </then>
+                            <else>
+                                <if expression="Perintah == &quot;(Show assignment)&quot;">
+                                    <then>
+                                        <call expression="TampilkanTugas(JumlahData, KodeMatkul, NamaTugas, Deadline, Kesulitan, Status, Prioritas)"/>
+                                    </then>
+                                    <else/>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+            </while>
+        </body>
+    </function>
+</flowgorithm>
